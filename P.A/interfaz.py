@@ -1,8 +1,20 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-import hashlib
+import hashlib, base64
 import os
+import serial
+import pymysql
+
+class database():
+    def __init__(self):
+        self.p = "UF8zLGgvNHA7"
+        self.connection = pymysql.connect(
+                    host='localhost',
+                    user='root',
+                    password= base64.b64decode(self.p) , 
+                    db = "Colegio"
+                )
 
 class interface():
     def __init__(self):
@@ -36,8 +48,12 @@ class interface():
             else:
                 print "[-]Usuario o contraseña incorrecto"
                 os.system("clear") 
+                
+    def arduino(self):
+        pass
             
-i = interface()
-i.login()
+d = database()
+#i = interface()
+#i.login()
         
         
