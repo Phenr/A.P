@@ -48,10 +48,6 @@ class interface():
 				print("[-]Incorrect user or password")  
 				os.system("clear")
 
-	
-		
-		
-
 i = interface()
 i.login()
 
